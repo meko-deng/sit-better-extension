@@ -87,6 +87,10 @@ body {
     width: 50px;
   }
 
+  input[type="number"]:disabled {
+    background-color: grey;
+  }
+
   .gray {
     color: #ADABAB;
   }
@@ -119,8 +123,18 @@ body {
     cursor: pointer;
   }
 
-  #submit:hover {
+  #submit > :hover {
     background: #5AD7CF;
+  }
+
+  #submit:disabled {
+    background: grey;
+    color: #000;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
   }
 
   .onoffswitch {
