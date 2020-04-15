@@ -18,7 +18,6 @@ chrome.alarms.onAlarm.addListener(function() {
     } else {
       chrome.browserAction.setBadgeText({text: 'OFF'});
       chrome.browserAction.setBadgeBackgroundColor({color:'red'});
-      clearAlarm()
     }
   });
 });
