@@ -3,17 +3,10 @@
     <title>Water Popup</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
-  <!-- <body>
-      <img src='./48.png' id='hydrateImage'>
-      <button id='sampleSecond' value='1'>Sample Second</button>
-      <button id='15min' value='15'>15 Minutes</button>
-      <button id='30min' value='30'>30 Minutes</button>
-      <button id='cancelAlarm'>Cancel Alarm</button>
-  </body> -->
   <body>
     <header>
-      <img src="img/temp.png" height="100" width="100" />
-      <p>Sit Better</p>
+      <!-- <img src="img/temp.png" height="100" width="100" /> -->
+      Sit Better
     </header>
     <form>
       <div class="onoffswitch">
@@ -28,9 +21,8 @@
           <span class="onoffswitch-switch"></span>
         </label>
       </div>
-      <div>
-        <span class="time-text"
-          >Every
+      <div id='timesound'>
+        <span class="time-text" id="time-text">Every
           <input
             type="number"
             name="time"
@@ -40,6 +32,8 @@
             maxlength="2"
           />
           minutes
+          <img id='sound-on' src='img/speaker.svg' height="25" width="25"/>
+          <img id='sound-off' src='img/mute.svg' height="25" width="25"/>
         </span>
       </div>
       <div>

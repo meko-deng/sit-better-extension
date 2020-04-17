@@ -1,14 +1,13 @@
 'use strict';
 var bkg = chrome.extension.getBackgroundPage();
 
-bkg.console.log('IN POPUP');
-bkg.console.log($("#default").prop('checked'))
 loadValues()
 
 function loadValues() {
-  chrome.storage.sync.get(['minutes','status',], function(obj) {
-    bkg.console.log('loading dom', obj)
+  chrome.storage.sync.get(['minutes','status','sound'], function(obj) {
     let isOn = obj.status === 'ON'
+    let isSoundOn = obj.sound === 'ON'
+    loadSoundIcon(!isSoundOn)
     setStyled(isOn)
     $("#time").val(obj.minutes)
     $("#default").prop('checked', isOn)
@@ -18,17 +17,31 @@ function loadValues() {
 function setStyled(isOn) {
   if(!isOn){
     $("#time").attr('disabled', true)
-    $("#submit").attr('disabled', true)    
+    $("#submit").attr('disabled', true)
+    $('#time-text').addClass('disabled')
+    $('#sound-on').addClass('sound-disabled')
+    $('#sound-off').addClass('sound-disabled')
   } else {
     $("#time").attr('disabled', false)
     $("#submit").attr('disabled', false)
+    $('#time-text').removeClass('disabled')
+    $('#sound-on').removeClass('sound-disabled')
+    $('#sound-off').removeClass('sound-disabled')
   }
+}
 
+function loadSoundIcon(isSoundOn) {
+  if(isSoundOn) {
+    $('#sound-on').hide()
+    $('#sound-off').show()
+  } else {
+    $('#sound-on').show()
+    $('#sound-off').hide()
+  }
 }
 
 function setAlarm(event) {
     let minutes = parseFloat($("#time").val())
-    bkg.console.log("TIME",parseFloat($("#time").val()))
     chrome.alarms.create('postureAlarm',{
         delayInMinutes: minutes,
         periodInMinutes: minutes
@@ -55,8 +68,18 @@ function setCheckbox() {
   setStyled(isChecked)
 }
 
+function toggleSound() {
+  let isSoundOn = $('#sound-on').is(':visible')
+  if (isSoundOn) {
+    loadSoundIcon(isSoundOn)
+    chrome.storage.sync.set({sound: 'OFF'}) // should be here or in setAlarm?
+  } else {
+    loadSoundIcon(isSoundOn)
+    chrome.storage.sync.set({sound: 'ON'})
+  }
+}
+
 function clearAlarm() {
-  bkg.console.log('Im geting called!')
   chrome.browserAction.setBadgeText({text: ''});
   chrome.alarms.clearAll();
 
@@ -66,3 +89,5 @@ function clearAlarm() {
 
 $("#submit").click(setAlarm)
 $("#default").click(setCheckbox)
+$('#sound-on').click(toggleSound)
+$('#sound-off').click(toggleSound)

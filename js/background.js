@@ -2,19 +2,20 @@
 var bkg = chrome.extension.getBackgroundPage();
 
 chrome.alarms.onAlarm.addListener(function() {
-  chrome.storage.sync.get(['status'], function(obj) {
+  chrome.storage.sync.get(['status', 'sound'], function(obj) {
     if(obj.status === 'ON') {
       chrome.browserAction.setBadgeText({text: 'ON'});
       chrome.browserAction.setBadgeBackgroundColor({color:'blue'});
+      var notificationSound = new Audio("/../audio/pull-out.mp3");
       chrome.notifications.create({
         type:     'basic',
         iconUrl:  '48.png',
-        title:    'Time to Hydrate',
-        message:  'Everyday I\'m Guzzlin\'!',
-        buttons: [
-          {title: 'Keep it Flowing.'}
-        ],
+        title:    'Sit up straight!',
+        message:  'Sit up straight, my friend!!!',
         priority: 0});
+      if (obj.sound === 'ON') {
+        notificationSound.play();
+      }
     } else {
       chrome.browserAction.setBadgeText({text: 'OFF'});
       chrome.browserAction.setBadgeBackgroundColor({color:'red'});
