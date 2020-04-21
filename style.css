@@ -81,8 +81,8 @@ input[type="number"]:disabled {
   cursor: pointer;
 }
 
-#submit > :hover {
-  background: #5ad7cf;
+#submit:hover:enabled {
+  background: #EBE1E1;
 }
 
 #submit:disabled {
@@ -183,4 +183,16 @@ input[type="number"]:disabled {
 .sound-disabled{
   opacity: 30%;
   cursor:not-allowed;
+}
+
+.error {
+  color: red;
+}
+
+#updateReminder {
+  display: none;
+}
+
+#timeError {
+  display: none;
 }

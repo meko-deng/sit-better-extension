@@ -27,7 +27,7 @@
             type="number"
             name="time"
             id="time"
-            value="0.1"
+            value="5"
             max="59"
             maxlength="2"
           />
@@ -35,10 +35,12 @@
           <img id='sound-on' src='img/speaker.svg' height="25" width="25"/>
           <img id='sound-off' src='img/mute.svg' height="25" width="25"/>
         </span>
+        <span id="timeError" class="error">Oups, make sure your value is between 1 to 59!</span>
       </div>
       <div>
         <input type="submit" value="Update" id="submit" />
       </div>
+      <span id="updateReminder" class="error">Click update to save changes!</span>
       <!-- <div class="options">
         <h2>Options</h2>
         <ul>

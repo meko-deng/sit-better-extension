@@ -9,7 +9,11 @@ function loadValues() {
     let isSoundOn = obj.sound === 'ON'
     loadSoundIcon(!isSoundOn)
     setStyled(isOn)
-    $("#time").val(obj.minutes)
+    if (!obj.minutes) {
+      $("#time").val(0.1)
+    } else {
+      $("#time").val(obj.minutes)
+    }
     $("#default").prop('checked', isOn)
   })
 }
@@ -64,6 +68,7 @@ function setCheckbox() {
     chrome.storage.sync.set({status: 'OFF',})
     chrome.browserAction.setBadgeText({text: 'OFF'});
     chrome.browserAction.setBadgeBackgroundColor({color:'red'});
+    showUpdateReminder(false)
   }
   setStyled(isChecked)
 }
@@ -79,6 +84,27 @@ function toggleSound() {
   }
 }
 
+function checkValue(){
+  let timeVal = $('#time').val() 
+  if(parseInt(timeVal) < 1 || parseInt(timeVal) > 59) {
+    $('#timeError').show()
+    $("#submit").attr('disabled', true)
+  } else {
+    $('#timeError').hide()
+    $("#submit").attr('disabled', false)
+    showUpdateReminder(true)
+  }
+}
+
+function showUpdateReminder(show) {
+  if (show) {
+    $('#updateReminder').show()
+  } else {
+    $('#updateReminder').hide()
+  }
+  
+}
+
 function clearAlarm() {
   chrome.browserAction.setBadgeText({text: ''});
   chrome.alarms.clearAll();
@@ -91,3 +117,5 @@ $("#submit").click(setAlarm)
 $("#default").click(setCheckbox)
 $('#sound-on').click(toggleSound)
 $('#sound-off').click(toggleSound)
+
+$('#time').change(checkValue)

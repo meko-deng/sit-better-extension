@@ -1,7 +1,7 @@
 {
-  "name": "Notification Demo",
-  "version": "1.1",
-  "description": "Shows off desktop notifications, which are \"toast\" windows that pop up on the desktop.",
+  "name": "Sit Better",
+  "version": "0.1",
+  "description": "Minimally configurable sit-up (keep your back straight) notification system",
   "icons": { "16": "16.png", "48": "48.png", "128": "128.png" },
   "permissions": [
     "alarms",
@@ -10,14 +10,13 @@
     "idle",
     "declarativeContent"
   ],
-  "options_page": "options.html",
   "background": {
     "scripts": ["/js/background.js"],
     "persistent": true
   },
   "manifest_version": 2,
   "browser_action": {
-    "default_title": "Drink Water Event",
+    "default_title": "Sit Straight Event",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "16.png",

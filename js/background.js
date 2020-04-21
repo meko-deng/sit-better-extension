@@ -10,8 +10,8 @@ chrome.alarms.onAlarm.addListener(function() {
       chrome.notifications.create({
         type:     'basic',
         iconUrl:  '48.png',
-        title:    'Sit up straight!',
-        message:  'Sit up straight, my friend!!!',
+        title:    'Keep your back straight!',
+        message:  'A friendly reminder to sit up straight.',
         priority: 0});
       if (obj.sound === 'ON') {
         notificationSound.play();
@@ -28,5 +28,3 @@ chrome.notifications.onButtonClicked.addListener(function() {
     chrome.alarms.create({delayInMinutes: item.minutes});
   });
 });
-
-bkg.console.log('IN BACKGROUND');
