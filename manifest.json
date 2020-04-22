@@ -2,7 +2,7 @@
   "name": "Sit Better",
   "version": "0.1",
   "description": "Minimally configurable sit-up (keep your back straight) notification system",
-  "icons": { "16": "16.png", "48": "48.png", "128": "128.png" },
+  "icons": { "16": "/img/16.png", "48": "/img/48.png", "128": "/img/128.png" },
   "permissions": [
     "alarms",
     "notifications",
@@ -19,10 +19,10 @@
     "default_title": "Sit Straight Event",
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "16.png",
-      "48": "48.png",
-      "128": "128.png"
+      "16": "/img/16.png",
+      "48": "/img/48.png",
+      "128": "/img/128.png"
     }
   },
-  "web_accessible_resources": ["48.png"]
+  "web_accessible_resources": ["/img/128.png"]
 }

@@ -10,7 +10,7 @@ function loadValues() {
     loadSoundIcon(!isSoundOn)
     setStyled(isOn)
     if (!obj.minutes) {
-      $("#time").val(0.1)
+      $("#time").val(5)
     } else {
       $("#time").val(obj.minutes)
     }
@@ -63,11 +63,11 @@ function setCheckbox() {
   if (isChecked) {
     chrome.storage.sync.set({status: 'ON',})
     chrome.browserAction.setBadgeText({text: 'ON'});
-    chrome.browserAction.setBadgeBackgroundColor({color:'blue'});
+    chrome.browserAction.setBadgeBackgroundColor({color:'#71cd9f'});
   } else {
     chrome.storage.sync.set({status: 'OFF',})
     chrome.browserAction.setBadgeText({text: 'OFF'});
-    chrome.browserAction.setBadgeBackgroundColor({color:'red'});
+    chrome.browserAction.setBadgeBackgroundColor({color:'#e92d4c'});
     showUpdateReminder(false)
   }
   setStyled(isChecked)
