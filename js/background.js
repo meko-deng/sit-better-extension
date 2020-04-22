@@ -9,7 +9,7 @@ chrome.alarms.onAlarm.addListener(function() {
       var notificationSound = new Audio("/../audio/pull-out.mp3");
       chrome.notifications.create({
         type:     'basic',
-        iconUrl:  '/img/48.png',
+        iconUrl:  '48.png',
         title:    'Keep your back straight!',
         message:  'A friendly reminder to sit up straight.',
         priority: 0});

@@ -10,7 +10,8 @@ function loadValues() {
     loadSoundIcon(!isSoundOn)
     setStyled(isOn)
     if (!obj.minutes) {
-      $("#time").val(5)
+      $("#time").val(0.1)
+      showUpdateReminder(true)
     } else {
       $("#time").val(obj.minutes)
     }
@@ -102,7 +103,6 @@ function showUpdateReminder(show) {
   } else {
     $('#updateReminder').hide()
   }
-  
 }
 
 function clearAlarm() {

@@ -1,6 +1,6 @@
 {
   "name": "Sit Better",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple chrome extension that reminds you to sit better",
   "icons": { "16": "16.png", "48": "48.png", "128": "128.png" },
   "permissions": [
