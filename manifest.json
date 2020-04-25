@@ -1,8 +1,8 @@
 {
   "name": "Sit Better",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Simple chrome extension that reminds you to sit better",
-  "icons": { "16": "16.png", "48": "48.png", "128": "128.png" },
+  "icons": { "16": "icon/16.png", "48": "icon/48.png", "128": "icon/128.png" },
   "permissions": [
     "notifications",
     "alarms",
@@ -17,9 +17,9 @@
     "default_title": "Sit Straight Event",
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "16.png",
-      "48": "48.png",
-      "128": "128.png"
+      "16": "icon/16.png",
+      "48": "icon/48.png",
+      "128": "icon/128.png"
     }
   },
   "web_accessible_resources": ["128.png"]
